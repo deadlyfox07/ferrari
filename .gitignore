@@ -1,0 +1,6 @@
+.DS_Store
+ferro-rosso.zip
+node_modules/
+.vscode/
+.gemini/
+*.log

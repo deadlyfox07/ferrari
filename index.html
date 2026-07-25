@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ferrari LaFerrari | The Ultimate Hypercar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="apple-touch-icon" href="./favicon.png">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <!-- Fixed Background Canvas -->
+  <canvas id="animation-canvas"></canvas>
+
+  <!-- Scroll space for animation -->
+  <div id="scroll-wrapper"></div>
+
+  <!-- Luxury Sports Car Website Content -->
+  <main id="website-content">
+    
+    <!-- Minimal Premium Header -->
+    <header class="main-header">
+      <a href="#" class="logo-link">
+        <img src="./logo.png" alt="Ferrari Logo" class="logo-image">
+      </a>
+      <nav class="main-nav">
+        <a href="#overview">Overview</a>
+        <a href="#specs">Specifications</a>
+        <a href="#aerodynamics">Aerodynamics</a>
+      </nav>
+    </header>
+
+    <!-- Overview Section -->
+    <section id="overview" class="content-section">
+      <div class="container animate-on-scroll">
+        <span class="section-tagline">AN UNPRECEDENTED TECH LEAP</span>
+        <h1 class="section-title">FERRARI <span class="text-red">LAFERRARI</span></h1>
+        <p class="section-desc">
+          LaFerrari represents Ferrari’s most ambitious project yet to push the boundaries of technology on a road car. Combining a blistering V12 engine with the advanced HY-KERS hybrid electric system, it stands as the definitive pinnacle of Italian engineering.
+        </p>
+        <div class="italy-divider"></div>
+      </div>
+    </section>
+
+    <!-- Specs Section -->
+    <section id="specs" class="content-section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-tagline">RAW POWER MET WITH ELECTRIC EFFICIENCY</span>
+          <h2 class="section-title">THE <span class="text-red">SPECIFICATIONS</span></h2>
+        </div>
+        
+        <div class="specs-grid">
+          <div class="spec-card animate-on-scroll">
+            <h3 class="spec-value">963 <span class="spec-unit">CV</span></h3>
+            <p class="spec-label">Total Combined Power Output</p>
+          </div>
+          
+          <div class="spec-card animate-on-scroll">
+            <h3 class="spec-value">800 <span class="spec-unit">CV</span></h3>
+            <p class="spec-label">V12 Internal Combustion Engine</p>
+          </div>
+          
+          <div class="spec-card animate-on-scroll">
+            <h3 class="spec-value">163 <span class="spec-unit">CV</span></h3>
+            <p class="spec-label">Electric Motor (HY-KERS)</p>
+          </div>
+          
+          <div class="spec-card animate-on-scroll">
+            <h3 class="spec-value">&lt; 3.0 <span class="spec-unit">SEC</span></h3>
+            <p class="spec-label">0 - 100 km/h Acceleration</p>
+          </div>
+
+          <div class="spec-card animate-on-scroll">
+            <h3 class="spec-value">&lt; 7.0 <span class="spec-unit">SEC</span></h3>
+            <p class="spec-label">0 - 200 km/h Acceleration</p>
+          </div>
+
+          <div class="spec-card animate-on-scroll">
+            <h3 class="spec-value">&gt; 350 <span class="spec-unit">KM/H</span></h3>
+            <p class="spec-label">Maximum Top Speed</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Aerodynamics / Detail Section -->
+    <section id="aerodynamics" class="content-section">
+      <div class="container two-col-layout">
+        <div class="layout-text animate-on-scroll">
+          <span class="section-tagline">ACTIVE AERODYNAMICS</span>
+          <h2 class="section-title">SCULPTED BY <span class="text-red">THE WIND</span></h2>
+          <p class="section-desc">
+            LaFerrari features state-of-the-art active aerodynamics, where front and rear devices generate downforce dynamically without increasing drag. The active rear spoiler moves in harmony with diffusers, ensuring optimal grip and stability at extreme speeds.
+          </p>
+          <div class="aero-features">
+            <div class="aero-feature-item">
+              <strong>Active Rear Wing:</strong> Automatically adjusts tilt based on speed and braking.
+            </div>
+            <div class="aero-feature-item">
+              <strong>Underbody Flaps:</strong> Directs airflow to maximize ground effect.
+            </div>
+          </div>
+        </div>
+        <div class="layout-visual animate-on-scroll">
+          <div class="telemetry-panel">
+            <div class="panel-header">AERODYNAMICS TELEMETRY</div>
+            <div class="telemetry-grid">
+              <div class="telemetry-item">
+                <span class="telemetry-label">REAR SPOILER</span>
+                <span class="telemetry-val text-red">ACTIVE (24°)</span>
+              </div>
+              <div class="telemetry-item">
+                <span class="telemetry-label">DOWNFORCE</span>
+                <span class="telemetry-val">410 KG @ 200KM/H</span>
+              </div>
+              <div class="telemetry-item">
+                <span class="telemetry-label">DRAG COEFF</span>
+                <span class="telemetry-val text-red">0.299 Cd</span>
+              </div>
+              <div class="telemetry-item">
+                <span class="telemetry-label">GROUND EFFECT</span>
+                <span class="telemetry-val">OPTIMIZED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Configure CTA Section -->
+    <section id="configure" class="content-section cta-section">
+      <div class="container animate-on-scroll">
+        <h2 class="cta-title">EXPERIENCE EXCLUSIVITY</h2>
+        <p class="cta-desc">Limited to only 499 units globally. LaFerrari is an elite statement of performance.</p>
+        <div class="cta-btn-wrapper">
+          <a href="#" class="btn-primary">INQUIRE SPECIFICATION</a>
+          <a href="#" class="btn-secondary">LEARN MORE</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="footer-container">
+        <p>&copy; 2026 Ferrari S.p.A. All rights reserved. LaFerrari is a registered trademark.</p>
+      </div>
+    </footer>
+
+  </main>
+</body>
+</html>
