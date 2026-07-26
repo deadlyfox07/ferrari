@@ -62,10 +62,18 @@ p {
   inset: 0;
   z-index: 2;
   display: flex;
-  align-items: center;
+  align-items: flex-end;          /* anchor to bottom so car centre is free */
   justify-content: center;
+  padding-bottom: 7vh;
   pointer-events: none;
-  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Subtle gradient ONLY at bottom — doesn't cover the car */
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0.12) 30%,
+    transparent 60%
+  );
 }
 
 .intro-content {
@@ -74,13 +82,14 @@ p {
 }
 
 .intro-tagline {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.35em;
-  color: rgba(255, 255, 255, 0.4);
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(12px, 1.4vw, 16px);
+  letter-spacing: 0.4em;
+  color: rgba(255, 255, 255, 0.45);
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 /* Mini Italian flag strip */
@@ -88,47 +97,52 @@ p {
   display: flex;
   justify-content: center;
   gap: 0;
-  margin-bottom: 28px;
+  margin-bottom: 18px;
+  opacity: 0.6;
 }
 
 .intro-flag span {
   display: block;
-  height: 3px;
-  width: 36px;
+  height: 2px;
+  width: 28px;
   border-radius: 1px;
 }
 .flag-green { background: #009246; }
 .flag-white { background: #f1f2f1; }
 .flag-red   { background: #c1272d; }
 
-/* Main title */
+/* Main title — large but transparent enough to see the car */
 .intro-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: clamp(64px, 14vw, 160px);
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  line-height: 0.9;
-  color: #fff;
-  margin: 0 0 28px;
-  text-shadow: 0 0 80px rgba(0,0,0,0.8);
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(52px, 9vw, 110px);
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0 0 16px;
+  text-shadow:
+    0 2px 40px rgba(0, 0, 0, 0.6),
+    0 0 120px rgba(227, 6, 19, 0.15);
 }
 
 .intro-red {
-  background: linear-gradient(135deg, #ff2e3b, #b30006);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-style: italic;
+  color: rgba(220, 60, 60, 0.85);
+  /* no background-clip — keeps it transparent and elegant */
 }
 
 /* Subtitle */
 .intro-sub {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(13px, 1.6vw, 17px);
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-style: italic;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.55);
-  line-height: 1.7;
-  margin: 0 auto 52px;
-  max-width: 420px;
-  letter-spacing: 0.02em;
+  font-size: clamp(14px, 1.5vw, 19px);
+  color: rgba(255, 255, 255, 0.38);
+  line-height: 1.6;
+  margin: 0 auto 36px;
+  max-width: 400px;
+  letter-spacing: 0.05em;
 }
 
 /* Scroll hint */
@@ -136,24 +150,25 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  opacity: 0.5;
 }
 
 .scroll-label {
   font-family: 'Inter', sans-serif;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.3em;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
 }
 
 .scroll-arrow {
-  animation: scroll-bounce 1.6s ease-in-out infinite;
+  animation: scroll-bounce 1.8s ease-in-out infinite;
 }
 
 .scroll-dot {
-  animation: dot-drop 1.6s ease-in-out infinite;
+  animation: dot-drop 1.8s ease-in-out infinite;
 }
 
 @keyframes scroll-bounce {
@@ -163,16 +178,18 @@ p {
 
 @keyframes dot-drop {
   0%   { cy: 7px; opacity: 1; }
-  60%  { cy: 17px; opacity: 0.3; }
+  60%  { cy: 17px; opacity: 0.2; }
   100% { cy: 7px; opacity: 1; }
 }
 
-/* Mobile tweaks */
+/* Mobile */
 @media (max-width: 480px) {
-  .intro-tagline { font-size: 9px; letter-spacing: 0.2em; }
-  .intro-sub     { font-size: 13px; margin-bottom: 40px; }
-  .intro-flag span { width: 28px; }
+  #intro-overlay { padding-bottom: 5vh; }
+  .intro-tagline { font-size: 11px; letter-spacing: 0.2em; }
+  .intro-sub     { font-size: 14px; margin-bottom: 28px; }
+  .intro-flag span { width: 22px; }
 }
+
 
 /* Luxury Website Content Wrapper */
 #website-content {
