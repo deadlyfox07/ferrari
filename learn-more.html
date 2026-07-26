@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn More | Ferrari LaFerrari</title>
+  <meta name="description" content="Discover the full story of the Ferrari LaFerrari — from its HY-KERS hybrid technology and aerodynamic genius to its legendary heritage and race-inspired design philosophy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="apple-touch-icon" href="./favicon.png">
+  <style>
+    body { background-color: #050505; }
+
+    .main-header { transform: translateY(0) !important; }
+
+    .inner-hero {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 0 80px;
+      overflow: hidden;
+      background: radial-gradient(ellipse at 60% 40%, rgba(227, 6, 19, 0.18) 0%, transparent 60%),
+                  radial-gradient(ellipse at 10% 80%, rgba(255, 236, 0, 0.05) 0%, transparent 50%),
+                  #050505;
+    }
+
+    .inner-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+    }
+
+    .hero-bg-number {
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(180px, 25vw, 340px);
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.025);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.05em;
+    }
+
+    .inner-hero .container { position: relative; z-index: 2; padding-top: 160px; }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 32px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #888;
+    }
+    .breadcrumb a { color: #888; text-decoration: none; transition: color 0.3s ease; }
+    .breadcrumb a:hover { color: #e30613; }
+    .breadcrumb-sep { color: #444; }
+    .breadcrumb-current { color: #e30613; }
+
+    .chapter {
+      padding: 100px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+    .chapter:last-of-type { border-bottom: none; }
+
+    .chapter-number {
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      color: #444;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .highlight-block {
+      background: linear-gradient(135deg, rgba(227, 6, 19, 0.08), rgba(227, 6, 19, 0.02));
+      border: 1px solid rgba(227, 6, 19, 0.2);
+      border-left: 4px solid #e30613;
+      border-radius: 0 12px 12px 0;
+      padding: 32px 40px;
+      margin: 48px 0;
+    }
+    .highlight-block p { font-size: 20px; font-style: italic; color: #d8d8d8; margin: 0; line-height: 1.6; }
+
+    .tech-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      margin: 64px 0;
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+    }
+    .tech-stat { background: rgba(12, 12, 12, 0.8); padding: 40px 32px; text-align: center; transition: background 0.3s ease; }
+    .tech-stat:hover { background: rgba(227, 6, 19, 0.08); }
+    .tech-stat-value { font-family: 'Outfit', sans-serif; font-size: 42px; font-weight: 900; color: #fff; display: block; margin-bottom: 8px; }
+    .tech-stat-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: #666; text-transform: uppercase; }
+
+    .timeline { position: relative; padding: 32px 0; margin-top: 48px; }
+    .timeline::before { content: ''; position: absolute; left: 24px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #e30613, transparent); }
+    .timeline-item { display: flex; gap: 32px; margin-bottom: 40px; padding-left: 60px; position: relative; }
+    .timeline-dot { position: absolute; left: 15px; top: 4px; width: 20px; height: 20px; border-radius: 50%; background: #e30613; border: 3px solid #050505; box-shadow: 0 0 0 2px rgba(227, 6, 19, 0.3); flex-shrink: 0; }
+    .timeline-year { font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; color: #e30613; text-transform: uppercase; min-width: 60px; padding-top: 2px; }
+    .timeline-content h4 { font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .timeline-content p { font-size: 15px; color: #888; margin: 0; line-height: 1.6; }
+
+    .feature-pills { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; color: #ccc; background: rgba(255,255,255,0.03); transition: all 0.3s ease; }
+    .pill:hover { border-color: #FFEC00; color: #FFEC00; background: rgba(255, 236, 0, 0.05); }
+    .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: #e30613; }
+
+    .visual-card { background: linear-gradient(135deg, rgba(25, 25, 25, 0.8), rgba(12, 12, 12, 0.9)); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; overflow: hidden; position: relative; }
+    .visual-card-inner { padding: 56px 48px; position: relative; z-index: 1; }
+    .visual-card::before { content: ''; position: absolute; top: 0; right: 0; width: 300px; height: 300px; background: radial-gradient(circle, rgba(227, 6, 19, 0.12) 0%, transparent 70%); pointer-events: none; }
+    .visual-card-label { font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.25em; color: #e30613; text-transform: uppercase; margin-bottom: 20px; display: block; }
+    .visual-card h3 { font-size: clamp(24px, 3vw, 38px); font-weight: 900; text-transform: uppercase; line-height: 1.1; margin-bottom: 24px; }
+
+    .page-cta { padding: 120px 0; text-align: center; background: radial-gradient(circle at center, rgba(227, 6, 19, 0.1) 0%, transparent 65%); }
+    .page-cta .cta-title { font-size: clamp(28px, 4vw, 50px); }
+
+    #website-content { background: transparent; box-shadow: none; }
+
+    /* ===== TABLET (≤768px) ===== */
+    @media (max-width: 768px) {
+      .main-header {
+        padding: 14px 20px;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .main-nav a {
+        margin-left: 16px;
+        font-size: 11px;
+      }
+      .inner-hero {
+        min-height: auto;
+        padding: 0 0 60px;
+      }
+      .inner-hero .container { padding-top: 120px; }
+      .chapter { padding: 64px 0; }
+      .highlight-block {
+        padding: 24px 20px;
+        margin: 32px 0;
+      }
+      .highlight-block p { font-size: 17px; }
+      .visual-card-inner { padding: 36px 28px; }
+      .tech-stat { padding: 28px 16px; }
+      .tech-stat-value { font-size: 34px; }
+      .feature-pills { gap: 8px; }
+      .pill { padding: 8px 14px; font-size: 12px; }
+      .page-cta { padding: 80px 0; }
+    }
+
+    /* ===== PHONE (≤480px) ===== */
+    @media (max-width: 480px) {
+      .main-nav a { margin-left: 12px; font-size: 10px; letter-spacing: 0.02em; }
+      .inner-hero .container { padding-top: 100px; }
+      .inner-hero { padding: 0 0 48px; }
+      .hero-bg-number { display: none; }
+      .section-desc { font-size: 15px; }
+      .chapter { padding: 48px 0; }
+      .highlight-block { padding: 20px 16px; margin: 24px 0; }
+      .highlight-block p { font-size: 15px; }
+      .tech-stats { grid-template-columns: 1fr 1fr; }
+      .tech-stat { padding: 24px 12px; }
+      .tech-stat-value { font-size: 28px; }
+      .tech-stat-label { font-size: 10px; }
+      .timeline::before { left: 14px; }
+      .timeline-item { padding-left: 40px; margin-bottom: 28px; }
+      .timeline-dot { left: 5px; width: 18px; height: 18px; }
+      .timeline-year { font-size: 11px; min-width: 50px; }
+      .timeline-content h4 { font-size: 16px; }
+      .timeline-content p { font-size: 13px; }
+      .visual-card-inner { padding: 28px 20px; }
+      .visual-card h3 { font-size: 22px; }
+      .pill { padding: 7px 12px; font-size: 11px; }
+      .page-cta { padding: 60px 0; }
+    }
+
+    /* ===== TINY PHONES (≤360px) ===== */
+    @media (max-width: 360px) {
+      .main-nav { display: none; }
+      .tech-stats { grid-template-columns: 1fr; }
+      .tech-stat { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="main-header">
+    <a href="./index.html" class="logo-link">
+      <img src="./logo.png" alt="Ferrari Logo" class="logo-image">
+    </a>
+    <nav class="main-nav">
+      <a href="./index.html#overview">Overview</a>
+      <a href="./index.html#specs">Specifications</a>
+      <a href="./index.html#aerodynamics">Aerodynamics</a>
+    </nav>
+  </header>
+
+  <section class="inner-hero">
+    <span class="hero-bg-number">499</span>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="./index.html">Home</a>
+        <span class="breadcrumb-sep">&#x203A;</span>
+        <span class="breadcrumb-current">Learn More</span>
+      </div>
+      <span class="section-tagline">THE COMPLETE STORY</span>
+      <h1 class="section-title">A MACHINE <span class="text-red">BEYOND</span><br>IMAGINATION</h1>
+      <p class="section-desc" style="max-width:620px;">
+        Every number. Every curve. Every revolution of a 6.3-litre V12. This is the full story of the Ferrari LaFerrari — the most technologically advanced production car Ferrari has ever built.
+      </p>
+    </div>
+  </section>
+
+  <main id="website-content">
+
+    <!-- Chapter 1: Heritage -->
+    <section class="chapter">
+      <div class="container">
+        <div class="animate-on-scroll">
+          <span class="chapter-number">Chapter 01</span>
+          <span class="section-tagline">A LEGACY FORGED ON THE TRACK</span>
+          <h2 class="section-title">PRANCING HORSE <span class="text-red">HERITAGE</span></h2>
+          <p class="section-desc">
+            Ferrari has spent over seven decades defining the upper limit of automotive performance. Born from the racing circuits of Maranello, every road car Ferrari produces carries the DNA of its Formula 1 programme. The LaFerrari is the ultimate expression of this philosophy — a halo car that concentrates every technological advancement into a single, breathtaking machine.
+          </p>
+          <div class="highlight-block">
+            <p>"LaFerrari is not merely the best Ferrari ever made. It is the culmination of everything Ferrari knows about performance, aerodynamics, and the marriage of man and machine."</p>
+          </div>
+          <p class="section-desc">
+            Limited to just 499 road-going examples — plus a solitary auction unit for charity — each LaFerrari was hand-assembled in Maranello, with each buyer personally approved by Ferrari's chairman. Ownership is not purchased; it is earned.
+          </p>
+        </div>
+
+        <div class="timeline animate-on-scroll">
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-year">1947</span>
+              <h4>Ferrari Founded</h4>
+              <p>Enzo Ferrari establishes Scuderia Ferrari in Maranello, Italy — laying the foundations for the greatest automotive dynasty in history.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-year">1987</span>
+              <h4>Ferrari F40</h4>
+              <p>The raw, twin-turbocharged icon becomes the first production car to break 200mph, marking a new era of hypercar performance.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-year">1995</span>
+              <h4>Ferrari F50</h4>
+              <p>Inspired directly by Formula 1 technology, the F50's naturally-aspirated V12 revved to 8,500rpm — a pure road-going racing car.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-year">2002</span>
+              <h4>Ferrari Enzo</h4>
+              <p>Named after the founder himself, the Enzo pushed aerodynamic and mechanical boundaries using then-current F1 technology transfer.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-year">2013</span>
+              <h4>Ferrari LaFerrari</h4>
+              <p>The successor to the Enzo arrives. With 963CV of combined hybrid power, it becomes the most powerful and advanced production Ferrari ever made.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter 2: HY-KERS -->
+    <section class="chapter" style="background: radial-gradient(ellipse at right center, rgba(227,6,19,0.06) 0%, transparent 60%);">
+      <div class="container">
+        <div class="animate-on-scroll">
+          <span class="chapter-number">Chapter 02</span>
+          <span class="section-tagline">DIRECT FROM FORMULA 1</span>
+          <h2 class="section-title">THE <span class="text-red">HY-KERS</span> SYSTEM</h2>
+          <p class="section-desc">
+            The LaFerrari's revolutionary HY-KERS (Hybrid Kinetic Energy Recovery System) did not originate in a road car laboratory. It was conceived on the Formula 1 grid — where every joule of energy matters. Ferrari's engineers ported this technology directly to the road, creating a system that works in seamless harmony with the V12 combustion engine.
+          </p>
+        </div>
+
+        <div class="tech-stats animate-on-scroll">
+          <div class="tech-stat">
+            <span class="tech-stat-value" style="background:linear-gradient(135deg,#ff2e3b,#b30006);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">800</span>
+            <span class="tech-stat-label">CV — V12 Engine</span>
+          </div>
+          <div class="tech-stat">
+            <span class="tech-stat-value" style="background:linear-gradient(135deg,#FFEC00,#cc9900);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">163</span>
+            <span class="tech-stat-label">CV — Electric Motor</span>
+          </div>
+          <div class="tech-stat">
+            <span class="tech-stat-value">963</span>
+            <span class="tech-stat-label">CV — Total Output</span>
+          </div>
+          <div class="tech-stat">
+            <span class="tech-stat-value" style="background:linear-gradient(135deg,#ff2e3b,#b30006);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">6.3L</span>
+            <span class="tech-stat-label">V12 Displacement</span>
+          </div>
+          <div class="tech-stat">
+            <span class="tech-stat-value">9,250</span>
+            <span class="tech-stat-label">RPM Redline</span>
+          </div>
+          <div class="tech-stat">
+            <span class="tech-stat-value" style="background:linear-gradient(135deg,#FFEC00,#cc9900);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">900</span>
+            <span class="tech-stat-label">Nm Total Torque</span>
+          </div>
+        </div>
+
+        <div class="animate-on-scroll">
+          <p class="section-desc">Unlike conventional hybrid systems that prioritise fuel economy, the HY-KERS is engineered purely for performance. The electric motor fills in torque where the V12 naturally has gaps, creating a completely seamless and linear power delivery across the entire rev range.</p>
+          <p class="section-desc">Energy is recovered under braking and deceleration, storing kinetic energy in a high-density lithium-ion battery pack positioned low behind the seats to maintain an optimal centre of gravity.</p>
+          <div class="feature-pills">
+            <div class="pill"><span class="pill-dot"></span>Kinetic Energy Recovery</div>
+            <div class="pill"><span class="pill-dot"></span>Seamless Torque Fill</div>
+            <div class="pill"><span class="pill-dot"></span>F1-Derived Technology</div>
+            <div class="pill"><span class="pill-dot"></span>Mid-Mounted Battery Pack</div>
+            <div class="pill"><span class="pill-dot"></span>Carbon Fibre Motor Housing</div>
+            <div class="pill"><span class="pill-dot"></span>Zero Parasitic Drag</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter 3: Design -->
+    <section class="chapter">
+      <div class="container">
+        <div class="animate-on-scroll">
+          <span class="chapter-number">Chapter 03</span>
+          <span class="section-tagline">FORM FOLLOWS FUNCTION — BEAUTIFULLY</span>
+          <h2 class="section-title">DESIGN <span class="text-red">PHILOSOPHY</span></h2>
+          <p class="section-desc">
+            The LaFerrari's body was not sculpted by designers with clay — it was shaped by aerodynamicists in the wind tunnel. Every crease, vent, and surface has a measurable aerodynamic purpose. Yet the result is one of the most visually striking automobiles ever created, proving that ultimate performance and breathtaking beauty are not mutually exclusive.
+          </p>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px;">
+          <div class="visual-card animate-on-scroll">
+            <div class="visual-card-inner">
+              <span class="visual-card-label">Aerodynamics</span>
+              <h3>Active <span class="text-red">Downforce</span></h3>
+              <p style="margin:0; font-size:15px; color:#888; line-height:1.7;">The active rear wing and underbody flaps generate 410kg of downforce at 200 km/h — without adding a single gram of drag. This is active aerodynamics in its purest form.</p>
+            </div>
+          </div>
+          <div class="visual-card animate-on-scroll">
+            <div class="visual-card-inner">
+              <span class="visual-card-label">Materials</span>
+              <h3>Carbon <span class="text-red">Everywhere</span></h3>
+              <p style="margin:0; font-size:15px; color:#888; line-height:1.7;">The entire monocoque chassis, bodywork, and structural components are formed from aerospace-grade carbon fibre, keeping the dry weight to just 1,255kg — remarkable for a car of this power.</p>
+            </div>
+          </div>
+          <div class="visual-card animate-on-scroll">
+            <div class="visual-card-inner">
+              <span class="visual-card-label">Cockpit</span>
+              <h3>Driver <span class="text-red">Focused</span></h3>
+              <p style="margin:0; font-size:15px; color:#888; line-height:1.7;">The pedal box and steering column adjust to the driver — not the other way around. The cockpit is designed around the human body, putting every control within instinctive reach at 350 km/h.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight-block animate-on-scroll" style="margin-top:64px;">
+          <p>Drag coefficient of just 0.299 Cd — extraordinary for a car generating 410kg of aerodynamic downforce. The laws of physics, bent to Ferrari's will.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter 4: Legacy -->
+    <section class="chapter" style="background: radial-gradient(ellipse at left 70%, rgba(255,236,0,0.04) 0%, transparent 50%);">
+      <div class="container">
+        <div class="animate-on-scroll">
+          <span class="chapter-number">Chapter 04</span>
+          <span class="section-tagline">AN ETERNAL MARK ON AUTOMOTIVE HISTORY</span>
+          <h2 class="section-title">THE <span class="text-red">LEGACY</span></h2>
+          <p class="section-desc">
+            The LaFerrari changed what the world believed was possible from a road car. When it debuted at the 2013 Geneva Motor Show, it did not merely compete with the McLaren P1 and Porsche 918 Spyder — it redefined the benchmark entirely. It was the first Ferrari to use a full hybrid drivetrain, and its performance figures were unprecedented.
+          </p>
+          <p class="section-desc">
+            In 2016, the LaFerrari Aperta — an open-top version — was revealed at the Paris Motor Show, limited to just 210 units. A single Aperta was also auctioned for a staggering $7 million, making it the most expensive new car ever sold at auction.
+          </p>
+          <div class="feature-pills animate-on-scroll">
+            <div class="pill"><span class="pill-dot"></span>2013 Geneva Motor Show Debut</div>
+            <div class="pill"><span class="pill-dot"></span>499 Road Cars Built</div>
+            <div class="pill"><span class="pill-dot"></span>210 Aperta Units</div>
+            <div class="pill" style="border-color:rgba(255,236,0,0.3);color:#FFEC00;"><span class="pill-dot" style="background:#FFEC00;"></span>$7M Charity Auction Record</div>
+            <div class="pill"><span class="pill-dot"></span>Fastest Road Ferrari Ever</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="page-cta content-section cta-section">
+      <div class="container animate-on-scroll">
+        <span class="section-tagline">READY TO TAKE THE NEXT STEP?</span>
+        <h2 class="cta-title">MAKE YOUR <span class="text-red">ENQUIRY</span></h2>
+        <p class="cta-desc">Connect with our specialist team to discuss your LaFerrari journey.</p>
+        <div class="cta-btn-wrapper">
+          <a href="./inquire.html" class="btn-primary" id="learn-more-inquire-btn">INQUIRE SPECIFICATION</a>
+          <a href="./index.html" class="btn-secondary" id="learn-more-back-btn">BACK TO OVERVIEW</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-container">
+      <p>&copy; 2026 Ferrari S.p.A. All rights reserved. LaFerrari is a registered trademark.</p>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('in-view');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
