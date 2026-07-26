@@ -106,6 +106,21 @@ function updateScroll() {
       header.classList.remove('visible');
     }
   }
+
+  // ── Intro overlay: fully visible at 0%, gone by 30% of animation scroll ──
+  const overlay = document.getElementById('intro-overlay');
+  if (overlay) {
+    const fadeStart = 0.15; // start fading at 15%
+    const fadeEnd   = 0.30; // fully gone at 30%
+    if (scrollFraction <= fadeStart) {
+      overlay.style.opacity = '1';
+    } else if (scrollFraction < fadeEnd) {
+      const t = (scrollFraction - fadeStart) / (fadeEnd - fadeStart);
+      overlay.style.opacity = (1 - t).toString();
+    } else {
+      overlay.style.opacity = '0';
+    }
+  }
 }
 
 // Throttled scroll listener

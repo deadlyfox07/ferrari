@@ -56,6 +56,124 @@ p {
   pointer-events: none;
 }
 
+/* ── Luxury Intro Overlay ─────────────────────────────────────────────────── */
+#intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.intro-content {
+  text-align: center;
+  user-select: none;
+}
+
+.intro-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* Mini Italian flag strip */
+.intro-flag {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 28px;
+}
+
+.intro-flag span {
+  display: block;
+  height: 3px;
+  width: 36px;
+  border-radius: 1px;
+}
+.flag-green { background: #009246; }
+.flag-white { background: #f1f2f1; }
+.flag-red   { background: #c1272d; }
+
+/* Main title */
+.intro-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(64px, 14vw, 160px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  color: #fff;
+  margin: 0 0 28px;
+  text-shadow: 0 0 80px rgba(0,0,0,0.8);
+}
+
+.intro-red {
+  background: linear-gradient(135deg, #ff2e3b, #b30006);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtitle */
+.intro-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(13px, 1.6vw, 17px);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.7;
+  margin: 0 auto 52px;
+  max-width: 420px;
+  letter-spacing: 0.02em;
+}
+
+/* Scroll hint */
+.intro-scroll-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.scroll-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+}
+
+.scroll-arrow {
+  animation: scroll-bounce 1.6s ease-in-out infinite;
+}
+
+.scroll-dot {
+  animation: dot-drop 1.6s ease-in-out infinite;
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(5px); }
+}
+
+@keyframes dot-drop {
+  0%   { cy: 7px; opacity: 1; }
+  60%  { cy: 17px; opacity: 0.3; }
+  100% { cy: 7px; opacity: 1; }
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+  .intro-tagline { font-size: 9px; letter-spacing: 0.2em; }
+  .intro-sub     { font-size: 13px; margin-bottom: 40px; }
+  .intro-flag span { width: 28px; }
+}
+
 /* Luxury Website Content Wrapper */
 #website-content {
   position: relative;
